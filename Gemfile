@@ -19,6 +19,9 @@ gem 'jbuilder', '~> 2.2.3'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+# A XML parameters parser for Action Pack (removed from core in Rails 4.0)
+gem 'actionpack-xml_parser'
+
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3', '~> 1.3.9'

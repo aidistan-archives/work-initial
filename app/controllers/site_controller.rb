@@ -1,6 +1,12 @@
 class SiteController < ApplicationController
+  protect_from_forgery :except => :home
+
   def home
-    render plain: params['echostr'] if check_signature
+    if request.get?
+      render plain: params['echostr'] if check_signature
+    elsif request.post?
+      render 'home', :formats => :xml if check_signature && params[:xml][:MsgType] == "text"
+    end
   end
 
   private
