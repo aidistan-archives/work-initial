@@ -22,5 +22,10 @@ module Initial
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    # Weixin constants
+    config.appid = 'wxd1a185128b918ca2'
+    config.appsecret = 'c5cb5505799a68988565a71e8c04c5fa'
+    config.token = 'TiZV27gJjde7W78gX7FoP4nvNwBdaPTi'
   end
 end

@@ -1,7 +1,4 @@
 class SiteController < ApplicationController
-  # Weixin token
-  TOKEN = 'TiZV27gJjde7W78gX7FoP4nvNwBdaPTi'
-
   def home
     render plain: params['echostr'] if check_signature
   end
@@ -13,7 +10,9 @@ class SiteController < ApplicationController
     timestamp = params['timestamp'] or return false
     nonce = params['nonce'] or return false
 
-    if (signature == Digest::SHA1.hexdigest([TOKEN, timestamp, nonce].sort.join))
+    if (signature == Digest::SHA1.hexdigest(
+      [Rails.application.config.token, timestamp, nonce].sort.join
+    ))
       return true
     else
       return false
