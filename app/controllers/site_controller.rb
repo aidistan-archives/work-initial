@@ -1,4 +1,6 @@
 class SiteController < ApplicationController
+  include ApplicationHelper
+
   protect_from_forgery :except => :home
 
   def home
@@ -24,13 +26,7 @@ class SiteController < ApplicationController
     signature = params['signature'] or return false
     timestamp = params['timestamp'] or return false
     nonce = params['nonce'] or return false
-
-    if (signature == Digest::SHA1.hexdigest(
-      [Rails.application.config.token, timestamp, nonce].sort.join
-    ))
-      return true
-    else
-      return false
-    end
+    return signature == get_signature(Rails.application.config.weixin.token,
+      timestamp, nonce) ? true : false
   end
 end
