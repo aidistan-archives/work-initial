@@ -26,9 +26,19 @@ module Initial
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 
-    # Weixin constants
-    config.appid = 'wxd1a185128b918ca2'
-    config.appsecret = 'c5cb5505799a68988565a71e8c04c5fa'
-    config.token = 'TiZV27gJjde7W78gX7FoP4nvNwBdaPTi'
+    # Weixin-related constants
+    config.weixin = Struct.new(
+      :appid, :appsecret, :token,
+      :access_token, :access_token_expires_in,
+    ).new(
+      'wxd1a185128b918ca2',
+      'c5cb5505799a68988565a71e8c04c5fa',
+      'TiZV27gJjde7W78gX7FoP4nvNwBdaPTi',
+      nil, 0
+    )
+
+    # Dynamic fields
+    config.weixin.access_token = "rVVtMHHOkErCzH55Y0UoHswhdA-yulcmsCzH3orBYQ7NKkLdpAJNsNpLGleZiOQJLwLM_1q06oHfcDjfyORsK3OWCC7ZPXGLkCzXRlaob34"
+    config.weixin.access_token_expires_in = 1432949197 # 2015-05-30 09:26:37 +0800
   end
 end
