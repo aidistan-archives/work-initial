@@ -9,6 +9,15 @@ class SiteController < ApplicationController
     end
   end
 
+  def record
+  end
+
+  def struct
+  end
+
+  def display
+  end
+
   private
 
   def check_signature()

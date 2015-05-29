@@ -6,4 +6,19 @@ class SiteControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "should get record" do
+    get :record
+    assert_response :success
+  end
+
+  test "should get struct" do
+    get :struct
+    assert_response :success
+  end
+
+  test "should get display" do
+    get :display
+    assert_response :success
+  end
+
 end
