@@ -30,11 +30,12 @@ module Initial
     config.weixin = Struct.new(
       :appid, :appsecret, :token,
       :access_token, :access_token_expires_in,
+      :jsapi_ticket, :jsapi_ticket_expires_in
     ).new(
       'wxd1a185128b918ca2',
       'c5cb5505799a68988565a71e8c04c5fa',
       'TiZV27gJjde7W78gX7FoP4nvNwBdaPTi',
-      nil, 0
+      nil, 0, nil, 0
     )
 
     # Dynamic fields
