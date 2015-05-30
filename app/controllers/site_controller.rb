@@ -43,7 +43,7 @@ class SiteController < ApplicationController
       jsapi_ticket: get_jsapi_ticket
     }
     @config[:signature] = Digest::SHA1.hexdigest(
-      @config.keys.sort.map { |k| "#{k}=#{@config[k]}" }.join('&').tap { |x| p x }
+      @config.keys.sort.map { |k| "#{k}=#{@config[k]}" }.join('&')
     )
     @config[:appid] = Rails.application.config.weixin.appid
   end
