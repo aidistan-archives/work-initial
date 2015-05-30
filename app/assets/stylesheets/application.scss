@@ -14,10 +14,12 @@
  *= require_self
  */
 
-$color-primary: #596d97;
+$color-blue: #596d97;
+$color-yellow: #fbdf50;
+$color-gray: #9ba4b7;
 
 body {
-  background-color: $color-primary;
+  background-color: $color-blue;
 }
 
 .am-container {
@@ -41,5 +43,42 @@ body {
     margin: 0;
     padding: 0;
     overflow: visible;
+  }
+}
+
+.record {
+  padding: 10px;
+
+  .header {
+    margin-top: 10px;
+  }
+
+  .paper {
+    background: #fff;
+    padding: 20px;
+    margin-top: -40px;
+    padding-top: 50px;
+
+    h1 {
+      color: $color-blue;
+    }
+  }
+
+  .xs-icon {
+    padding: 4px;
+    margin-right: 0;
+  }
+
+  .lg-icon {
+    padding: 3px;
+
+    img {
+      margin-right: 8px;
+    }
+  }
+
+  button {
+    background-color: $color-yellow;
+    font-weight: bold;
   }
 }

@@ -1,4 +1,20 @@
-- provide :title, "\u2B50记录第一次"
+- provide :title, "\u2B50 记录第一次"
 
-%h1 Site#record
-%p Find me in app/views/site/record.html.haml
+.record
+  .am-g.header
+    = image_tag 'ideaicon.png', size: '80x80'
+  .am-g.paper
+    %h1 第一次
+    %form.am-form
+      .am-form-group.am-form-icon
+        %i.am-icon-pencil
+        %input.am-form-field{type: 'text', placeholder: '去卜蜂莲花买零食'}
+      .am-form-group
+        %textarea{rows: '10', placeholder: '详细说一说...'}
+      .am-form-group
+        .am-u-sm-6.lg-icon
+          = image_tag 'picicon.png', size: '48x36'
+          = image_tag 'sticker1.png', size: '36x36'
+        .am-u-sm-4.am-u-sm-offset-2.text-right
+          %button.am-btn.am-btn-block.am-round{type: 'button'}
+            %i.am-icon-check
