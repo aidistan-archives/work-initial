@@ -4,7 +4,7 @@ class SiteController < ApplicationController
   protect_from_forgery :except => :home
   before_action :validate_user, except: :home
   before_action :prepare_jssdk, except: :home
-  layout 'with-jssdk', except: :home
+  layout 'mobile', except: :home
 
   def home
     if request.get?

@@ -14,4 +14,5 @@
     = csrf_meta_tags
 
   %body
-    = content_for?(:content) ? yield(:content) : yield
+    .container
+      = content_for?(:content) ? yield(:content) : yield

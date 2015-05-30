@@ -16,8 +16,33 @@
 
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
-@import 'variables';
+
+$color-primary: #596d97;
 
 body {
   background-color: $color-primary;
+}
+
+.container {
+  max-width: 640px;
+}
+
+.home {
+  h1 {
+    font-size: 48px;
+    color: #fff;
+    margin: 40px 0;
+  }
+
+  .qrcode {
+    position: relative;
+    z-index: 2;
+  }
+
+  .logo {
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+  }
 }
