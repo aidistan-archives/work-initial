@@ -16,3 +16,8 @@
 
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+@import 'variables';
+
+body {
+  background-color: $color-primary;
+}

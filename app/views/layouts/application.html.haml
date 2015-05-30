@@ -1,9 +1,17 @@
 !!! 5
 %html
   %head
+    %meta{charset: 'utf-8'}
+    %meta{name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'}
+    %meta{'http-equiv' => 'X-UA-Compatible', content: 'IE=edge'}
+    %meta{name: 'description', content: '记录珍贵的瞬间，探索更大的世界'}
+    %meta{name: 'keywords', content: '第一次, 微信, 记录, 探索'}
+
     %title= content_for?(:title) ? yield(:title) : '第一次'
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    %script{type: 'text/javascript', src: 'http://www.youziku.com/webfont/FastJS/cfb4449928d54ac3aa80fccbed243fe0.js'}
     = csrf_meta_tags
+
   %body
     = content_for?(:content) ? yield(:content) : yield

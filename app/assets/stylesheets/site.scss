@@ -1,3 +1,26 @@
 // Place all the styles related to the site controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import 'variables';
+
+.home {
+
+  h1 {
+    font-size: 48px;
+    color: #fff;
+    margin: 40px 0;
+  }
+
+  .qrcode {
+    position: relative;
+    z-index: 2;
+  }
+
+  .logo {
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+  }
+}

@@ -1,2 +1,12 @@
-%h1 第一次
-= image_tag 'qrcode.jpg'
+%div.container.home
+  %div.row
+    %h1.text-center.font-title 第一次
+  %div.row.qrcode
+    %div.col-xs-8.col-xs-offset-2.col-sm-6.col-sm-offset-3.col-md-4.col-md-offset-4
+      = image_tag 'qrcode.png', class: 'img-responsive'
+  %div.row.logo
+    = image_tag 'earth-l.png', class: 'img-responsive'
+
+:javascript
+  $youziku.load(".font-title", "b0debf557cff4468b396342fed6b87b7", "TianNiu");
+  $youziku.draw();
