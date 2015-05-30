@@ -6,6 +6,7 @@
   .am-g.paper
     %h1 第一次
     = form_for @record, url: record_path, html: { class: 'am-form' } do |f|
+      = hidden_field_tag :openid, params['openid']
       = f.hidden_field :user_id
       = f.hidden_field :category_id
       = f.hidden_field :sticker_id

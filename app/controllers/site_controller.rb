@@ -3,6 +3,7 @@ class SiteController < ApplicationController
 
   protect_from_forgery :except => :home
   before_action :validate_user, except: :home
+  before_action :validate_record, only: :display
   before_action :prepare_jssdk, except: :home
   layout 'mobile', except: :home
 
@@ -15,11 +16,24 @@ class SiteController < ApplicationController
   end
 
   def record
-    @categories = Category.all
-    @record = @user.records.build(category_id: @categories.first.id, sticker_id: 1)
+    if request.get? && @user
+      @categories = Category.all
+      @record = @user.records.build(category_id: @categories.first.id, sticker_id: 1)
+    elsif request.post?
+      @record = Record.new(record_params)
+      if @record.user.id == @user.id
+        @record.save
+        redirect_to display_path(openid: params[:openid], record_id: @record.id)
+      else
+        redirect_to root_path
+      end
+    else
+      redirect_to root_path
+    end
   end
 
   def display
+    redirect_to root_path unless @record
   end
 
   private
@@ -43,11 +57,18 @@ class SiteController < ApplicationController
         params['code'] }&grant_type=authorization_code"
       )))['openid']
     end
-    redirect_to root_path unless params['openid']
 
     # Get user
-    @user = User.find_by(openid: params['openid']) ||
-      User.create(openid: params['openid'])
+    if params['openid']
+      @user = User.find_by(openid: params['openid']) ||
+        User.create(openid: params['openid'])
+    end
+  end
+
+  def validate_record
+    if params['record_id']
+      @record = Record.find(params['record_id'])
+    end
   end
 
   def prepare_jssdk
@@ -63,5 +84,9 @@ class SiteController < ApplicationController
       @config.keys.sort.map { |k| "#{k}=#{@config[k]}" }.join('&')
     )
     @config[:appid] = Rails.application.config.weixin.appid
+  end
+
+  def record_params
+    params.require(:record).permit(:user_id, :category_id, :sticker_id, :attr_val, :text, :image)
   end
 end
