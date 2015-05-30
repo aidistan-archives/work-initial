@@ -52,3 +52,6 @@
           .am-u-sm-4= image_tag 'sticker7.png', size: '64x64', 'data-id' => '7', 'data-am-modal-close' => true
           .am-u-sm-4= image_tag 'sticker8.png', size: '64x64', 'data-id' => '8', 'data-am-modal-close' => true
           .am-u-sm-4= image_tag 'sticker9.png', size: '64x64', 'data-id' => '9', 'data-am-modal-close' => true
+
+:coffee
+  wx.ready -> wx.hideOptionMenu();

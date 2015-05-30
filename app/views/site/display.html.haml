@@ -31,3 +31,32 @@
       .am-u-sm-6.am-text-center
         = image_tag 'likeicon.png', class: 'am-img-responsive am-center'
         %p 喜欢
+
+:coffee
+  wx.ready ->
+    wx.showOptionMenu()
+
+    title = '#{ "\u2B50" } 第一次#{ @record.attr_val }'
+    desc = '#{ @record.text }'
+    link = '#{ request.url.split('?')[0] + "?record_id=#{ @record.id }" }'
+    imgUrl = '#{ asset_url 'earth-with-light.png' }'
+
+    wx.onMenuShareTimeline
+      title: title
+      link: link
+      imgUrl: imgUrl
+    wx.onMenuShareAppMessage
+      title: title
+      desc: desc
+      link: link
+      imgUrl: imgUrl
+    wx.onMenuShareQQ
+      title: title
+      desc: desc
+      link: link
+      imgUrl: imgUrl
+    wx.onMenuShareWeibo
+      title: title
+      desc: desc
+      link: link
+      imgUrl: imgUrl

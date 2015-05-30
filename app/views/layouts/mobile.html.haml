@@ -13,7 +13,14 @@
       # 必填，签名，见附录1
       signature: '#{ @config[:signature] }'
       # 必填，需要使用的JS接口列表，所有JS接口列表见附录2
-      jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage']
+      jsApiList: [
+        'hideOptionMenu'
+        'showOptionMenu'
+        'onMenuShareTimeline'
+        'onMenuShareAppMessage'
+        'onMenuShareQQ'
+        'onMenuShareWeibo'
+      ]
 
   = yield
 
