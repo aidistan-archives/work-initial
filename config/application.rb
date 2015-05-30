@@ -39,7 +39,7 @@ module Initial
     )
 
     # Dynamic fields
-    config.weixin.access_token = "rVVtMHHOkErCzH55Y0UoHswhdA-yulcmsCzH3orBYQ7NKkLdpAJNsNpLGleZiOQJLwLM_1q06oHfcDjfyORsK3OWCC7ZPXGLkCzXRlaob34"
-    config.weixin.access_token_expires_in = 1432949197 # 2015-05-30 09:26:37 +0800
+    config.weixin.access_token = "kPp_tx5XPwjbZTf-3XIaHW9s77Ic1ZyNc5so1yBu9H8ERgmBAiKeohqr_eFvVq088a9pXLkbFOXO88Qt6XlvkfwaOpsoJjCxAezrWWdQwfI"
+    config.weixin.access_token_expires_in = 1432963352 # 2015-05-30 13:22:32 +0800
   end
 end
