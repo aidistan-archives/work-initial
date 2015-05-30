@@ -32,6 +32,7 @@ class SiteController < ApplicationController
   end
 
   def validate_user
+    # Get openid
     if params['openid'].nil? && params['code']
       params['openid'] = JSON.parse(Net::HTTP.get(URI(
         "https://api.weixin.qq.com/sns/oauth2/access_token?appid=#{
@@ -41,6 +42,10 @@ class SiteController < ApplicationController
       )))['openid']
     end
     redirect_to root_path unless params['openid']
+
+    # Get user
+    @user = User.find_by(openid: params['openid']) ||
+      User.create(openid: params['openid'])
   end
 
   def prepare_jssdk
