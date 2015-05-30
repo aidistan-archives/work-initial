@@ -1,17 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  user_id: 
-  category_id: 
-  text: MyString
-  image: MyString
-  attr_val1: MyString
-  attr_val2: MyString
-
-two:
-  user_id: 
-  category_id: 
-  text: MyString
-  image: MyString
-  attr_val1: MyString
-  attr_val2: MyString
+# one:
+#   user_id:
+#   category_id:
+#   text: MyString
+#   image: MyString
+#   attr_val1: MyString
+#   attr_val2: MyString
+#
+# two:
+#   user_id:
+#   category_id:
+#   text: MyString
+#   image: MyString
+#   attr_val1: MyString
+#   attr_val2: MyString

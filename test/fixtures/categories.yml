@@ -1,15 +1,8 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  attr_name1: MyString
+trace:
+  name: 足迹
+  attr_name1: 地点
   attr_name2: MyString
-  placeholder1: MyString
-  placeholder2: MyString
-
-two:
-  name: MyString
-  attr_name1: MyString
-  attr_name2: MyString
-  placeholder1: MyString
+  placeholder1: 去香山...
   placeholder2: MyString
