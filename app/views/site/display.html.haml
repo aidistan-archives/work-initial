@@ -1,4 +1,33 @@
-- provide :title, "\u2B50展示第一次"
+- provide :title, "\u2B50 记录成功"
 
-%h1 Site#display
-%p Find me in app/views/site/display.html.haml
+.display
+  .am-g.header
+    = image_tag "#{ @record.category.name }.png", size: '80x80'
+  .am-g.paper
+    .am-cf
+      %span.am-badge.am-round.am-fr= @record.category.name
+    .am-cf
+      %span.am-fr= @record.created_at.strftime '%-m月%-d日'
+    - if @record.category.attr_name
+      %h2= '第一次' + @record.attr_val
+    %p= @record.text
+    = image_tag "sticker#{ @record.sticker_id }.png", size: '36x36'
+
+  .am-g.footer
+    - if @user && @record.user == @user
+      .am-u-sm-4.am-text-center
+        = image_tag 'recordicon.png', class: 'am-img-responsive am-center'
+        %p 记录
+      .am-u-sm-4.am-text-center
+        = image_tag 'earthicon.png', class: 'am-img-responsive am-center'
+        %p 搜索
+      .am-u-sm-4.am-text-center
+        = image_tag 'timeicon.png', class: 'am-img-responsive am-center'
+        %p 历史
+    - else
+      .am-u-sm-6.am-text-center
+        = image_tag 'doneicon.png', class: 'am-img-responsive am-center'
+        %p 做过
+      .am-u-sm-6.am-text-center
+        = image_tag 'likeicon.png', class: 'am-img-responsive am-center'
+        %p 喜欢

@@ -22,9 +22,7 @@ body {
   background-color: $color-blue;
 }
 
-.am-container {
-  max-width: 640px;
-}
+.am-container { max-width: 640px; }
 
 .home {
   h1 {
@@ -46,62 +44,58 @@ body {
   }
 }
 
-.record {
+.record,
+.display {
   padding: 10px;
-
-  img {
-    cursor: pointer;
+  .header { margin-top: 10px; }
+  .paper {
+    background: #fff;
+    padding: 20px;
+    margin-top: -40px;
   }
+}
 
+.record {
+  img { cursor: pointer; }
   button {
     background-color: $color-yellow;
     font-weight: bold;
   }
 
-  .header {
-    margin-top: 10px;
-  }
-
   .paper {
-    background: #fff;
-    padding: 20px;
-    margin-top: -40px;
     padding-top: 50px;
-
-    h1 {
-      color: $color-blue;
-    }
+    h1 { color: $color-blue; }
   }
-
   .xs-icon {
     padding: 4px;
     margin-right: 0;
   }
-
   .lg-icon {
     padding: 3px;
-
-    img {
-      margin-right: 8px;
-    }
+    img { margin-right: 8px; }
   }
 
   #modal-category {
-    .am-modal-bd {
-      padding-top: 15px;
-    }
-    p {
-      margin-top: 8px;
-      margin-bottom: 24px;
-    }
+    .am-modal-bd { padding-top: 15px; }
+    p { margin-top: 8px; margin-bottom: 24px; }
   }
-
   #modal-sticker {
-    .am-modal-bd {
-      padding-top: 15px;
-    }
+    .am-modal-bd { padding-top: 15px; }
+    .am-u-sm-4 { margin-bottom: 15px; }
+  }
+}
+
+.display {
+  .paper {
+    h2 { margin-top: 0px; }
+  }
+  .footer {
+    color: #fff;
+    font-size: 1.2em;
+    margin-top: 30px;
     .am-u-sm-4 {
-      margin-bottom: 15px;
+      padding-left: 30px;
+      padding-right: 30px;
     }
   }
 }
