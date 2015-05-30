@@ -73,6 +73,7 @@ body {
     padding: 3px;
 
     img {
+      cursor: pointer;
       margin-right: 8px;
     }
   }
@@ -80,5 +81,17 @@ body {
   button {
     background-color: $color-yellow;
     font-weight: bold;
+  }
+}
+
+#modal-sticker {
+  .am-modal-bd {
+    padding-top: 15px;
+  }
+  .am-g {
+    margin-bottom: 15px;
+  }
+  img {
+    cursor: pointer;
   }
 }

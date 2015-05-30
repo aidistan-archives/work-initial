@@ -18,3 +18,22 @@
         .am-u-sm-4.am-u-sm-offset-2.text-right
           %button.am-btn.am-btn-block.am-round{type: 'button'}
             %i.am-icon-check
+
+#modal-sticker.am-modal.am-modal-no-btn{tabindex: '-1'}
+  .am-modal-dialog
+    .am-modal-hd
+      记录下此刻的心情
+      %a.am-close.am-close-spin{href: 'javascript: void(0)', 'data-am-modal-close' => true} &times;
+    .am-modal-bd
+      .am-g
+        .am-u-sm-4= image_tag 'sticker1.png', size: '64x64', 'data-sticker' => '1', 'data-am-modal-close' => true
+        .am-u-sm-4= image_tag 'sticker2.png', size: '64x64', 'data-sticker' => '2', 'data-am-modal-close' => true
+        .am-u-sm-4= image_tag 'sticker3.png', size: '64x64', 'data-sticker' => '3', 'data-am-modal-close' => true
+      .am-g
+        .am-u-sm-4= image_tag 'sticker4.png', size: '64x64', 'data-sticker' => '4', 'data-am-modal-close' => true
+        .am-u-sm-4= image_tag 'sticker5.png', size: '64x64', 'data-sticker' => '5', 'data-am-modal-close' => true
+        .am-u-sm-4= image_tag 'sticker6.png', size: '64x64', 'data-sticker' => '6', 'data-am-modal-close' => true
+      .am-g
+        .am-u-sm-4= image_tag 'sticker7.png', size: '64x64', 'data-sticker' => '7', 'data-am-modal-close' => true
+        .am-u-sm-4= image_tag 'sticker8.png', size: '64x64', 'data-sticker' => '8', 'data-am-modal-close' => true
+        .am-u-sm-4= image_tag 'sticker9.png', size: '64x64', 'data-sticker' => '9', 'data-am-modal-close' => true

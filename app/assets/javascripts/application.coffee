@@ -42,4 +42,14 @@ $(->
         rotate += 5
         logo.css('transform', "rotate(#{rotate}deg)")
       , 100)
+
+  # For record page
+  if $('.record').length > 0
+    btn = $('.paper:last-child img:nth-child(2)')
+    btn.click ->
+      $('#modal-sticker').modal
+        width: 360
+        height: 320
+      $('#modal-sticker img').click (e)->
+        btn.attr('src', "/assets/sticker#{$(this).attr('data-sticker')}.png")
 );

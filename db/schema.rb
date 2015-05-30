@@ -15,21 +15,18 @@ ActiveRecord::Schema.define(version: 20150530061943) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
-    t.string   "attr_name1"
-    t.string   "attr_name2"
-    t.string   "placeholder1"
-    t.string   "placeholder2"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.string   "attr_name"
+    t.string   "placeholder"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "records", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "category_id"
+    t.string   "attr_val"
     t.text     "text"
     t.string   "image"
-    t.string   "attr_val1"
-    t.string   "attr_val2"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

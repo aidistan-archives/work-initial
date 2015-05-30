@@ -1,8 +1,33 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
 trace:
   name: 足迹
-  attr_name1: 地点
-  attr_name2: MyString
-  placeholder1: 去香山...
-  placeholder2: MyString
+  attr_name: 地点
+  placeholder: 去香山
+
+emotion:
+  name: 情感
+  attr_name:
+  placeholder:
+
+compose:
+  name: 创作
+  attr_name: 作品
+  placeholder: 写一首情歌
+
+eating:
+  name: 吃喝
+  attr_name: 美食
+  placeholder: 吃西少爷肉夹馍
+
+trying:
+  name: 体验
+  attr_name: 尝试
+  placeholder: 坐双层大巴
+
+sports:
+  name: 运动
+  attr_name: 运动
+  placeholder: 射箭
