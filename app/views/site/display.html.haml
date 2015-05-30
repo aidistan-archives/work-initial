@@ -13,8 +13,17 @@
     %p= @record.text
     = image_tag "sticker#{ @record.sticker_id }.png", size: '36x36'
 
-  .am-g.footer
-    - if @user && @record.user == @user
+    - unless @user && @record.user == @user
+      .am-g.am-margin-top
+        .am-u-sm-6.am-text-center
+          = image_tag 'doneicon.png', class: 'am-img-responsive am-center'
+          %p 做过
+        .am-u-sm-6.am-text-center
+          = image_tag 'likeicon.png', class: 'am-img-responsive am-center'
+          %p 喜欢
+
+  - if @user && @record.user == @user
+    .am-g.footer
       .am-u-sm-4.am-text-center
         = image_tag 'recordicon.png', class: 'am-img-responsive am-center'
         %p 记录
@@ -24,13 +33,6 @@
       .am-u-sm-4.am-text-center
         = image_tag 'timeicon.png', class: 'am-img-responsive am-center'
         %p 历史
-    - else
-      .am-u-sm-6.am-text-center
-        = image_tag 'doneicon.png', class: 'am-img-responsive am-center'
-        %p 做过
-      .am-u-sm-6.am-text-center
-        = image_tag 'likeicon.png', class: 'am-img-responsive am-center'
-        %p 喜欢
 
 :coffee
   wx.ready ->
