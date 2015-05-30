@@ -15,8 +15,8 @@ class SiteController < ApplicationController
   end
 
   def record
-    @record = @user.records.build
     @categories = Category.all
+    @record = @user.records.build(category_id: @categories.first.id, sticker_id: 1)
   end
 
   def display

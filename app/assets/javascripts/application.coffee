@@ -51,13 +51,23 @@ $(->
         width: 360
         height: 300
       $('#modal-category img').click (e)->
-        console.log $(this).attr('src')
+        $('#record_category_id').attr
+          value: $(this).attr('data-id')
         btn_category.attr('src', $(this).attr('src'))
+        if $(this).attr('data-attr-name') == undefined
+          $('.paper .am-form-group.am-form-icon').fadeOut('fast')
+        else
+          $('.paper .am-form-group.am-form-icon').fadeIn('fast')
+          $('.paper .am-form-group.am-form-icon input').attr
+            placeholder: $(this).attr('data-placeholder')
+
     btn_sticker = $('.paper .am-form-group:last-child img:nth-child(2)')
     btn_sticker.click ->
       $('#modal-sticker').modal
         width: 360
         height: 320
       $('#modal-sticker img').click (e)->
+        $('#record_sticker_id').attr
+          value: $(this).attr('data-id')
         btn_sticker.attr('src', $(this).attr('src'))
 );

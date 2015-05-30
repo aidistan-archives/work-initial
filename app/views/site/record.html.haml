@@ -2,11 +2,14 @@
 
 .record
   .am-g.header
-    = image_tag '创作.png', size: '80x80'
+    = image_tag "#{ @record.category.name }.png", size: '80x80'
   .am-g.paper
     %h1 第一次
     = form_for @record, url: record_path, html: { class: 'am-form' } do |f|
-      .am-form-group.am-form-icon
+      = f.hidden_field :user_id
+      = f.hidden_field :category_id
+      = f.hidden_field :sticker_id
+      .am-form-group.am-form-icon{style: @record.category.attr_name.nil? ? 'display: none' : ''}
         %i.am-icon-pencil
         = f.text_field :attr_val, class: 'am-form-field', placeholder: '写一首情歌'
       .am-form-group
@@ -14,7 +17,7 @@
       .am-form-group
         .am-u-sm-6.lg-icon
           = image_tag 'picicon.png', size: '48x36'
-          = image_tag 'sticker1.png', size: '36x36'
+          = image_tag "sticker#{ @record.sticker_id }.png", size: '36x36'
         .am-u-sm-4.am-u-sm-offset-2.text-right
           %button.am-btn.am-btn-block.am-round{type: 'submit'}
             %i.am-icon-check
@@ -28,7 +31,8 @@
         .am-g
           - @categories.each do |category|
             .am-u-sm-4
-              = image_tag "#{category.name}.png", size: '64x64', 'data-id' => category.id, 'data-am-modal-close' => true
+              = image_tag "#{category.name}.png", size: '64x64', 'data-am-modal-close' => true,
+                'data-id' => category.id, 'data-attr-name' => category.attr_name, 'data-placeholder' => category.placeholder
               %p.text-center= category.name
 
   #modal-sticker.am-modal.am-modal-no-btn{tabindex: '-1'}
