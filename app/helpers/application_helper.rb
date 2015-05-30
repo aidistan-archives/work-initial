@@ -49,8 +49,4 @@ config.weixin.jsapi_ticket_expires_in = #{ Time.now.to_i + json['expires_in'] } 
 
     Rails.application.config.weixin.jsapi_ticket
   end
-
-  def get_signature(*fields)
-    Digest::SHA1.hexdigest(fields.sort.join)
-  end
 end

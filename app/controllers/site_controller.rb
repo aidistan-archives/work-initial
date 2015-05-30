@@ -2,6 +2,8 @@ class SiteController < ApplicationController
   include ApplicationHelper
 
   protect_from_forgery :except => :home
+  before_action :prepare_jssdk, except: :home
+  layout 'with-jssdk', except: :home
 
   def home
     if request.get?
@@ -22,11 +24,27 @@ class SiteController < ApplicationController
 
   private
 
-  def check_signature()
+  def check_signature
     signature = params['signature'] or return false
     timestamp = params['timestamp'] or return false
     nonce = params['nonce'] or return false
-    return signature == get_signature(Rails.application.config.weixin.token,
-      timestamp, nonce) ? true : false
+
+    return signature == Digest::SHA1.hexdigest([Rails.application.config.weixin.token,
+      timestamp, nonce].sort.join) ? true : false
+  end
+
+  def prepare_jssdk
+    @config = {
+      url: request.url,
+      timestamp: Time.now.to_i.to_s,
+      noncestr: 16.times.map {
+        [0..9, 'a'..'z', 'A'..'Z'].map { |r| r.to_a }.inject(&:+).shuffle.first
+      }.join,
+      jsapi_ticket: get_jsapi_ticket
+    }
+    @config[:signature] = Digest::SHA1.hexdigest(
+      @config.keys.sort.map { |k| "#{k}=#{@config[k]}" }.join('&').tap { |x| p x }
+    )
+    @config[:appid] = Rails.application.config.weixin.appid
   end
 end
