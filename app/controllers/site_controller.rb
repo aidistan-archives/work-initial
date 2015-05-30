@@ -17,9 +17,6 @@ class SiteController < ApplicationController
   def record
   end
 
-  def struct
-  end
-
   def display
   end
 

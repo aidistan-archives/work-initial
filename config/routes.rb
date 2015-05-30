@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   post '/', to: 'site#home'
 
   get '/record', to: 'site#record'
-  get '/struct', to: 'site#struct'
   get '/display', to: 'site#display'
 
   # The priority is based upon order of creation: first created -> highest priority.
