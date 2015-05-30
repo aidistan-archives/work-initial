@@ -8,11 +8,14 @@
     %meta{name: 'keywords', content: '第一次, 微信, 记录, 探索'}
 
     %title= content_for?(:title) ? yield(:title) : '第一次'
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+
+    %link{rel: 'stylesheet', href: 'http://cdn.amazeui.org/amazeui/2.3.0/css/amazeui.min.css'}
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
-    %script{type: 'text/javascript', src: 'http://www.youziku.com/webfont/FastJS/cfb4449928d54ac3aa80fccbed243fe0.js'}
+    %script{src: 'http://cdn.amazeui.org/amazeui/2.3.0/js/amazeui.min.js'}
+    %script{src: 'http://www.youziku.com/webfont/FastJS/cfb4449928d54ac3aa80fccbed243fe0.js'}
     = csrf_meta_tags
 
   %body
-    .container
+    .am-container
       = content_for?(:content) ? yield(:content) : yield

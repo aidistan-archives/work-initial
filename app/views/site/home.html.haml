@@ -1,11 +1,11 @@
 .home
-  .row
-    %h1.text-center.font-title 第一次
-  .row.qrcode
-    .col-xs-8.col-xs-offset-2
-      = image_tag 'qrcode.png', class: 'img-responsive'
-  .row.logo
-    = image_tag 'earth-with-light.png', class: 'img-responsive'
+  .am-g
+    %h1.am-text-center.font-title 第一次
+  .am-g.qrcode
+    .am-u-sm-8.am-u-sm-offset-2
+      = image_tag 'qrcode.png', class: 'am-img-responsive'
+  .am-g.logo
+    = image_tag 'earth-with-light.png', class: 'am-img-responsive'
 
 :javascript
   $youziku.load(".font-title", "b0debf557cff4468b396342fed6b87b7", "TianNiu");

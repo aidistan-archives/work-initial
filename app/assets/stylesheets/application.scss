@@ -14,16 +14,13 @@
  *= require_self
  */
 
-@import 'bootstrap-sprockets';
-@import 'bootstrap';
-
 $color-primary: #596d97;
 
 body {
   background-color: $color-primary;
 }
 
-.container {
+.am-container {
   max-width: 640px;
 }
 
