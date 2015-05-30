@@ -5,18 +5,18 @@
     = image_tag 'ideaicon.png', size: '80x80'
   .am-g.paper
     %h1 第一次
-    %form.am-form
+    = form_for @record, url: record_path, html: { class: 'am-form' } do |f|
       .am-form-group.am-form-icon
         %i.am-icon-pencil
-        %input.am-form-field{type: 'text', placeholder: '去卜蜂莲花买零食'}
+        = f.text_field :attr_val, class: 'am-form-field', placeholder: '写一首情歌'
       .am-form-group
-        %textarea{rows: '10', placeholder: '详细说一说...'}
+        = text_area :record, :text, rows: '10', placeholder: '详细说一说...'
       .am-form-group
         .am-u-sm-6.lg-icon
           = image_tag 'picicon.png', size: '48x36'
           = image_tag 'sticker1.png', size: '36x36'
         .am-u-sm-4.am-u-sm-offset-2.text-right
-          %button.am-btn.am-btn-block.am-round{type: 'button'}
+          %button.am-btn.am-btn-block.am-round{type: 'submit'}
             %i.am-icon-check
 
 #modal-sticker.am-modal.am-modal-no-btn{tabindex: '-1'}

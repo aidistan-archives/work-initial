@@ -15,6 +15,7 @@ class SiteController < ApplicationController
   end
 
   def record
+    @record = @user.records.build
   end
 
   def display
