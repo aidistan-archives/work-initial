@@ -49,6 +49,15 @@ body {
 .record {
   padding: 10px;
 
+  img {
+    cursor: pointer;
+  }
+
+  button {
+    background-color: $color-yellow;
+    font-weight: bold;
+  }
+
   .header {
     margin-top: 10px;
   }
@@ -73,25 +82,26 @@ body {
     padding: 3px;
 
     img {
-      cursor: pointer;
       margin-right: 8px;
     }
   }
 
-  button {
-    background-color: $color-yellow;
-    font-weight: bold;
+  #modal-category {
+    .am-modal-bd {
+      padding-top: 15px;
+    }
+    p {
+      margin-top: 8px;
+      margin-bottom: 24px;
+    }
   }
-}
 
-#modal-sticker {
-  .am-modal-bd {
-    padding-top: 15px;
-  }
-  .am-g {
-    margin-bottom: 15px;
-  }
-  img {
-    cursor: pointer;
+  #modal-sticker {
+    .am-modal-bd {
+      padding-top: 15px;
+    }
+    .am-u-sm-4 {
+      margin-bottom: 15px;
+    }
   }
 }

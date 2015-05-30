@@ -45,11 +45,19 @@ $(->
 
   # For record page
   if $('.record').length > 0
-    btn = $('.paper:last-child img:nth-child(2)')
-    btn.click ->
+    btn_category = $('.header img')
+    btn_category.click ->
+      $('#modal-category').modal
+        width: 360
+        height: 300
+      $('#modal-category img').click (e)->
+        console.log $(this).attr('src')
+        btn_category.attr('src', $(this).attr('src'))
+    btn_sticker = $('.paper .am-form-group:last-child img:nth-child(2)')
+    btn_sticker.click ->
       $('#modal-sticker').modal
         width: 360
         height: 320
       $('#modal-sticker img').click (e)->
-        btn.attr('src', "/assets/sticker#{$(this).attr('data-sticker')}.png")
+        btn_sticker.attr('src', $(this).attr('src'))
 );

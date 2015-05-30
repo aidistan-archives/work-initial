@@ -2,7 +2,7 @@
 
 .record
   .am-g.header
-    = image_tag 'ideaicon.png', size: '80x80'
+    = image_tag '创作.png', size: '80x80'
   .am-g.paper
     %h1 第一次
     = form_for @record, url: record_path, html: { class: 'am-form' } do |f|
@@ -19,21 +19,31 @@
           %button.am-btn.am-btn-block.am-round{type: 'submit'}
             %i.am-icon-check
 
-#modal-sticker.am-modal.am-modal-no-btn{tabindex: '-1'}
-  .am-modal-dialog
-    .am-modal-hd
-      记录下此刻的心情
-      %a.am-close.am-close-spin{href: 'javascript: void(0)', 'data-am-modal-close' => true} &times;
-    .am-modal-bd
-      .am-g
-        .am-u-sm-4= image_tag 'sticker1.png', size: '64x64', 'data-sticker' => '1', 'data-am-modal-close' => true
-        .am-u-sm-4= image_tag 'sticker2.png', size: '64x64', 'data-sticker' => '2', 'data-am-modal-close' => true
-        .am-u-sm-4= image_tag 'sticker3.png', size: '64x64', 'data-sticker' => '3', 'data-am-modal-close' => true
-      .am-g
-        .am-u-sm-4= image_tag 'sticker4.png', size: '64x64', 'data-sticker' => '4', 'data-am-modal-close' => true
-        .am-u-sm-4= image_tag 'sticker5.png', size: '64x64', 'data-sticker' => '5', 'data-am-modal-close' => true
-        .am-u-sm-4= image_tag 'sticker6.png', size: '64x64', 'data-sticker' => '6', 'data-am-modal-close' => true
-      .am-g
-        .am-u-sm-4= image_tag 'sticker7.png', size: '64x64', 'data-sticker' => '7', 'data-am-modal-close' => true
-        .am-u-sm-4= image_tag 'sticker8.png', size: '64x64', 'data-sticker' => '8', 'data-am-modal-close' => true
-        .am-u-sm-4= image_tag 'sticker9.png', size: '64x64', 'data-sticker' => '9', 'data-am-modal-close' => true
+  #modal-category.am-modal.am-modal-no-btn{tabindex: '-1'}
+    .am-modal-dialog
+      .am-modal-hd
+        选择记录的类别
+        %a.am-close.am-close-spin{href: 'javascript: void(0)', 'data-am-modal-close' => true} &times;
+      .am-modal-bd
+        .am-g
+          - @categories.each do |category|
+            .am-u-sm-4
+              = image_tag "#{category.name}.png", size: '64x64', 'data-id' => category.id, 'data-am-modal-close' => true
+              %p.text-center= category.name
+
+  #modal-sticker.am-modal.am-modal-no-btn{tabindex: '-1'}
+    .am-modal-dialog
+      .am-modal-hd
+        记录此刻的心情
+        %a.am-close.am-close-spin{href: 'javascript: void(0)', 'data-am-modal-close' => true} &times;
+      .am-modal-bd
+        .am-g
+          .am-u-sm-4= image_tag 'sticker1.png', size: '64x64', 'data-id' => '1', 'data-am-modal-close' => true
+          .am-u-sm-4= image_tag 'sticker2.png', size: '64x64', 'data-id' => '2', 'data-am-modal-close' => true
+          .am-u-sm-4= image_tag 'sticker3.png', size: '64x64', 'data-id' => '3', 'data-am-modal-close' => true
+          .am-u-sm-4= image_tag 'sticker4.png', size: '64x64', 'data-id' => '4', 'data-am-modal-close' => true
+          .am-u-sm-4= image_tag 'sticker5.png', size: '64x64', 'data-id' => '5', 'data-am-modal-close' => true
+          .am-u-sm-4= image_tag 'sticker6.png', size: '64x64', 'data-id' => '6', 'data-am-modal-close' => true
+          .am-u-sm-4= image_tag 'sticker7.png', size: '64x64', 'data-id' => '7', 'data-am-modal-close' => true
+          .am-u-sm-4= image_tag 'sticker8.png', size: '64x64', 'data-id' => '8', 'data-am-modal-close' => true
+          .am-u-sm-4= image_tag 'sticker9.png', size: '64x64', 'data-id' => '9', 'data-am-modal-close' => true

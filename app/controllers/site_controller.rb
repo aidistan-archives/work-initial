@@ -16,6 +16,7 @@ class SiteController < ApplicationController
 
   def record
     @record = @user.records.build
+    @categories = Category.all
   end
 
   def display
