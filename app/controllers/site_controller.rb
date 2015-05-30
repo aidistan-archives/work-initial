@@ -2,6 +2,7 @@ class SiteController < ApplicationController
   include ApplicationHelper
 
   protect_from_forgery :except => :home
+  before_action :validate_user, except: :home
   before_action :prepare_jssdk, except: :home
   layout 'with-jssdk', except: :home
 
@@ -31,6 +32,18 @@ class SiteController < ApplicationController
 
     return signature == Digest::SHA1.hexdigest([Rails.application.config.weixin.token,
       timestamp, nonce].sort.join) ? true : false
+  end
+
+  def validate_user
+    if params['openid'].nil? && params['code']
+      params['openid'] = JSON.parse(Net::HTTP.get(URI(
+        "https://api.weixin.qq.com/sns/oauth2/access_token?appid=#{
+        Rails.application.config.weixin.appid }&secret=#{
+        Rails.application.config.weixin.appsecret }&code=#{
+        params['code'] }&grant_type=authorization_code"
+      )))['openid']
+    end
+    redirect_to root_path unless params['openid']
   end
 
   def prepare_jssdk
