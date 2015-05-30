@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  attr_name1: MyString
+  attr_name2: MyString
+  placeholder1: MyString
+  placeholder2: MyString
+
+two:
+  name: MyString
+  attr_name1: MyString
+  attr_name2: MyString
+  placeholder1: MyString
+  placeholder2: MyString
