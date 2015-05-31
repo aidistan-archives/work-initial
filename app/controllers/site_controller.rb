@@ -16,7 +16,7 @@ class SiteController < ApplicationController
       if check_signature
         case params[:xml][:MsgType]
         when 'text'
-          @content = %w(软嘟嘟 郭逗逗 谭噜噜).shuffle.first + '收到！'
+          @content = %w(阮嘟嘟 郭逗逗 谭噜噜).shuffle.first + '收到！'
           render 'home', :formats => :xml
         when 'event'
           case params[:xml][:Event]
