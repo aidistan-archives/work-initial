@@ -58,8 +58,9 @@ body {
 
 .record {
   img { cursor: pointer; }
-  button {
+  .submit {
     background-color: $color-yellow;
+    color: #000 !important;
     font-weight: bold;
   }
 
