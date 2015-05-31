@@ -1,3 +1,5 @@
+require 'net/http'
+
 module ApplicationHelper
   def get_access_token
     if Time.now.to_i >= Rails.application.config.weixin.access_token_expires_in

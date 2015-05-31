@@ -1,3 +1,5 @@
+require 'net/http'
+
 class SiteController < ApplicationController
   include ApplicationHelper
 
