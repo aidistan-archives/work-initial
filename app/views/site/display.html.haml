@@ -39,15 +39,6 @@
   wx.ready ->
     wx.showOptionMenu()
 
-    unless #{ @record.image.empty? }
-      wx.downloadImage
-        serverId: '#{ @record.image }'
-        isShowProgressTips: 0,
-        success: (res) ->
-          img = $('<img class="am-img-responsive">')
-          img.attr('src', res.localId)
-          $('.paper > p').after(img)
-
     title = '#{ "\u2B50" } 第一次#{ @record.attr_val }'
     desc = '#{ @record.text }'
     link = '#{ request.url.split('?')[0] + "?record_id=#{ @record.id }" }'
@@ -72,3 +63,13 @@
       desc: desc
       link: link
       imgUrl: imgUrl
+
+- unless @record.image.empty?
+  :coffee
+    wx.ready -> wx.downloadImage
+      serverId: '#{ @record.image }'
+      isShowProgressTips: 0,
+      success: (res) ->
+        img = $('<img class="am-img-responsive">')
+        img.attr('src', res.localId)
+        $('.paper > p').after(img)

@@ -4,8 +4,9 @@
   - if @user.records.empty?
     %h1 您还没有发布过第一次，快去记录吧～
   - else
-    - @user.records.each do |record|
-      %article
+    - images = []
+    - @user.records.reverse.each do |record|
+      %article{ id: "article-#{record.id}" }
         .am-g.header
           = image_tag "#{ record.category.name }.png", size: '80x80'
         .am-g.paper
@@ -14,7 +15,7 @@
           - if record.category.attr_name
             %h2= '第一次' + record.attr_val
           %p= record.text
-          .am-g
+          .am-g.am-margin-top
             .am-u-sm-3
               = image_tag "doneicon.png", size: '30x30'
               %span 0
@@ -23,3 +24,21 @@
               %span 0
             .am-u-sm-3
               = image_tag "sticker#{ record.sticker_id }.png", size: '30x30', class: 'am-fr'
+
+      - if record.image && !record.image.empty?
+        - images << { id: record.id, image: record.image }
+
+:coffee
+  wx.ready ->
+    wx.hideOptionMenu()
+
+    images = #{ images.to_json }
+    downloadImage = (idx) -> wx.downloadImage
+      serverId: images[idx].image
+      isShowProgressTips: 0,
+      success: (res) ->
+        img = $('<img class="am-img-responsive">')
+        img.attr('src', res.localId)
+        $('#article-' + images[idx].id + ' p').after(img)
+        downloadImage(idx+1) if idx + 1 < images.length
+    downloadImage(0) if images.length > 0
