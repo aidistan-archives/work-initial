@@ -11,7 +11,29 @@ class SiteController < ApplicationController
     if request.get?
       render plain: params['echostr'] if check_signature
     elsif request.post?
-      render 'home', :formats => :xml if check_signature && params[:xml][:MsgType] == "text"
+      if check_signature
+        case params[:xml][:MsgType]
+        when 'text'
+          @content = %w(软嘟嘟 郭逗逗 谭噜噜).shuffle.first
+          render 'home', :formats => :xml
+        when 'event'
+          case params[:xml][:Event]
+          when 'subscribe'
+            @content = <<-END_OF_DOC
+在这个世界上，每个人都独一无二
+在你的一生中，每个第一次都值得去铭记
+何不记录下那些，让你激情不已，亦或是终生难忘的第一次呢？
+
+点击【记录】，记录你的第一次
+点击【探索】，看看别人的“第一次”有没有给你一些灵感
+点击【回忆】，翻阅自己的回忆，回忆那些我们曾一起记录下的“第一次”
+
+直接回复文字，给我们提出改进意见，您的支持将是我们前进的巨大动力
+            END_OF_DOC
+            render 'home', :formats => :xml
+          end
+        end
+      end
     end
   end
 

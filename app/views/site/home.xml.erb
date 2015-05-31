@@ -3,5 +3,5 @@
     <FromUserName><![CDATA[<%= params[:xml][:ToUserName] %>]]></FromUserName>
     <CreateTime><%= Time.now.to_i %></CreateTime>
     <MsgType><![CDATA[text]]></MsgType>
-    <Content><![CDATA[<%= %w(软嘟嘟 郭逗逗 谭谈谈).shuffle.first %>]]></Content>
+    <Content><![CDATA[<%= @content %>]]></Content>
 </xml>
