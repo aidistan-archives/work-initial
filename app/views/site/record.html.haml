@@ -1,5 +1,10 @@
 - provide :title, "\u2B50 记录第一次"
 
+:css
+  body {
+    background: #596d97 url('/assets/recordbg.png') no-repeat fixed bottom left;
+  }
+
 .record
   .am-g.header
     = image_tag "#{ @record.category.name }.png", size: '80x80'
