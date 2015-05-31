@@ -12,7 +12,11 @@
     {
       "type": "view",
       "name": "探索",
-      "url": "http://laptop.aidistan.net/"
+      "url": "https://open.weixin.qq.com/connect/oauth2/authorize?appid=<%=
+          Rails.application.config.weixin.appid
+        %>&redirect_uri=<%=
+          ERB::Util.url_encode('http://laptop.aidistan.net/explore')
+        %>&response_type=code&scope=snsapi_base#wechat_redirect"
     },
     {
       "type": "view",

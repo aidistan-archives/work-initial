@@ -23,7 +23,7 @@ class SiteController < ApplicationController
       @record = Record.new(record_params)
       if @record.user.id == @user.id
         @record.save
-        redirect_to display_path(openid: params[:openid], record_id: @record.id)
+        redirect_to display_path(openid: @user.openid, record_id: @record.id)
       else
         redirect_to root_path
       end
@@ -34,6 +34,15 @@ class SiteController < ApplicationController
 
   def display
     redirect_to root_path unless @record
+  end
+
+  def explore
+    redirect_to root_path unless @user
+    if request.post?
+      @records = Record.all
+      @record = @records[rand @records.size]
+      redirect_to display_path(openid: @user.openid, record_id: @record.id, from_explore: '1')
+    end
   end
 
   private

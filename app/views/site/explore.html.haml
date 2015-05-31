@@ -1,0 +1,22 @@
+- provide :title, "\u2B50 探索"
+
+.explore
+  = image_tag 'explorer.svg', class: 'am-img-responsive'
+
+:coffee
+  $('body').click ->
+    form = document.createElement("FORM")
+    document.body.appendChild(form)
+    form.method = 'POST'
+    form.action = '#{ request.url }'
+
+    $(form).append $('<input></input>').attr
+      name: 'category1'
+      type: 'hidden'
+      value: '1'
+    $(form).append $('<input></input>').attr
+      name: 'category2'
+      type: 'hidden'
+      value: '2'
+
+    form.submit();

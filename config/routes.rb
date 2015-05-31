@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get '/record', to: 'site#record'
   post '/record', to: 'site#record'
   get '/display', to: 'site#display'
+  get '/explore', to: 'site#explore'
+  post '/explore', to: 'site#explore'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
