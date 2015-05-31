@@ -11,10 +11,10 @@
     - if @record.category.attr_name
       %h2= '第一次' + @record.attr_val
     %p= @record.text
-    = image_tag "sticker#{ @record.sticker_id }.png", size: '36x36'
+    = image_tag "sticker#{ @record.sticker_id }.png", size: '36x36', class: 'am-margin-top'
 
     - unless @user && @record.user == @user
-      .am-g.am-margin-top
+      .interaction.am-g.am-margin-top
         .am-u-sm-6.am-text-center
           = image_tag 'doneicon.png', class: 'am-img-responsive am-center'
           %p 做过
@@ -38,6 +38,15 @@
 :coffee
   wx.ready ->
     wx.showOptionMenu()
+
+    unless #{ @record.image.empty? }
+      wx.downloadImage
+        serverId: '#{ @record.image }'
+        isShowProgressTips: 0,
+        success: (res) ->
+          img = $('<img class="am-img-responsive">')
+          img.attr('src', res.localId)
+          $('.paper > p').after(img)
 
     title = '#{ "\u2B50" } 第一次#{ @record.attr_val }'
     desc = '#{ @record.text }'
