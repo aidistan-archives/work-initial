@@ -44,6 +44,9 @@ class SiteController < ApplicationController
       redirect_to display_path(openid: @user.openid, record_id: @record.id, from_explore: '1')
     end
   end
+  
+  def timeline
+  end
 
   private
 

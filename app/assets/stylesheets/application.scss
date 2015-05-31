@@ -87,7 +87,15 @@ body {
 
 .display {
   .paper {
-    h2 { margin-top: 0px; }
+    h2 {
+      color: $color-blue;
+      font-size: 1.1em;
+      margin-top: 0px;
+    }
+    p { color: $color-gray; }
+
+    .date { color: #B6B6B6; }
+    .am-badge { background-color: $color-gray; }
   }
   .footer {
     color: #fff;
@@ -97,5 +105,10 @@ body {
       padding-left: 30px;
       padding-right: 30px;
     }
+  }
+  .am-margin-top {
+    padding-top: 1.6rem;
+    border-top: 1px #e7e7e7 solid;
+    p { margin-bottom: 0; }
   }
 }

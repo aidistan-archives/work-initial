@@ -5,9 +5,9 @@
     = image_tag "#{ @record.category.name }.png", size: '80x80'
   .am-g.paper
     .am-cf
-      %span.am-badge.am-round.am-fr= @record.category.name
+      %span.am-badge.am-text-sm.am-fr= @record.category.name
     .am-cf
-      %span.am-fr= @record.created_at.strftime '%-m月%-d日'
+      %span.date.am-text-sm.am-fr= @record.created_at.strftime '%-m月%-d日'
     - if @record.category.attr_name
       %h2= '第一次' + @record.attr_val
     %p= @record.text
