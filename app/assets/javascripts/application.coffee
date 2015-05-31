@@ -70,4 +70,6 @@ $(->
         $('#record_sticker_id').attr
           value: $(this).attr('data-id')
         btn_sticker.attr('src', $(this).attr('src'))
+
+    btn_category.click()
 );
