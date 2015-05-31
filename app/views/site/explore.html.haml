@@ -8,7 +8,7 @@
     form = document.createElement("FORM")
     document.body.appendChild(form)
     form.method = 'POST'
-    form.action = '#{ request.url }'
+    form.action = '#{ request.url.split('?')[0] + "?openid=#{ @user.openid }" }'
 
     $(form).append $('<input></input>').attr
       name: 'category1'
