@@ -21,7 +21,11 @@
     {
       "type": "view",
       "name": "回忆",
-      "url": "http://laptop.aidistan.net/"
+      "url": "https://open.weixin.qq.com/connect/oauth2/authorize?appid=<%=
+          Rails.application.config.weixin.appid
+        %>&redirect_uri=<%=
+          ERB::Util.url_encode('http://laptop.aidistan.net/timeline')
+        %>&response_type=code&scope=snsapi_base#wechat_redirect"
     }
   ]
 }

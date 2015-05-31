@@ -45,7 +45,8 @@ body {
 }
 
 .record,
-.display {
+.display,
+.timeline {
   padding: 10px;
   .header { margin-top: 10px; }
   .paper {
@@ -110,5 +111,18 @@ body {
     padding-top: 1.6rem;
     border-top: 1px #e7e7e7 solid;
     p { margin-bottom: 0; }
+  }
+}
+
+.timeline {
+  h1 { color: #fff; }
+  .paper {
+    h2 {
+      color: $color-blue;
+      font-size: 1.1em;
+      margin-top: 10px;
+    }
+    p, span { color: $color-gray; }
+    .date { color: #B6B6B6; }
   }
 }

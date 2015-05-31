@@ -1,0 +1,25 @@
+- provide :title, "\u2B50 我的第一次"
+
+.timeline
+  - if @user.records.empty?
+    %h1 您还没有发布过第一次，快去记录吧～
+  - else
+    - @user.records.each do |record|
+      %article
+        .am-g.header
+          = image_tag "#{ record.category.name }.png", size: '80x80'
+        .am-g.paper
+          .am-cf
+            %span.date.am-text-sm.am-fr= record.created_at.strftime '%-m月%-d日'
+          - if record.category.attr_name
+            %h2= '第一次' + record.attr_val
+          %p= record.text
+          .am-g
+            .am-u-sm-2
+              = image_tag "doneicon.png", size: '30x30'
+              %span 0
+            .am-u-sm-2
+              = image_tag "likeicon.png", size: '30x30'
+              %span 0
+            .am-u-sm-3
+              = image_tag "sticker#{ record.sticker_id }.png", size: '30x30', class: 'am-fr'
