@@ -89,4 +89,9 @@ $(->
             $('form').submit()
 
     btn_category.click()
+
+  # For record page
+  if $('.explore').length > 0
+    $('svg').height($(window).height())
+    $('svg').width($('.explore').width())
 );

@@ -3,7 +3,7 @@ require 'net/http'
 class SiteController < ApplicationController
   include ApplicationHelper
 
-  protect_from_forgery :except => :home
+  protect_from_forgery :except => [:home, :explore]
   before_action :validate_user, except: :home
   before_action :validate_record, only: :display
   before_action :prepare_jssdk, except: :home
